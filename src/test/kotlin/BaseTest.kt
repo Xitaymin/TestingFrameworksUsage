@@ -6,8 +6,6 @@ open class BaseTest
 BeforeAll батьківського класу виконується перед BeforeAll дочірнього класу, а AfterAll - після AfterAll дочірнього класу.
 BeforeEach батьківського класу виконується перед BeforeEach дочірнього класу, а AfterEach - після AfterEach дочірнього класу.
 */
-
-
 {
 
 	protected var sharedValue: Int = 0
