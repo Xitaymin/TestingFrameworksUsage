@@ -1,12 +1,16 @@
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
-import org.junit.jupiter.api.Assertions.assertTrue
 
 class UserTest
 {
 
 	@Test
 	fun `validate bot properties`(): Unit
+
+	/*Під «юнітом» у юніт-тестуванні розуміється одиниця поведінки, а не одиниця коду.
+	Одна одиниця поведінки може призводити до кількох результатів;
+	перевіряти всі ці результати в одному тесті цілком нормально.*/
 	{
 		val user = getBotUser()
 		assertTrue(user.id.isNotBlank(), "ID не може бути порожнім")
