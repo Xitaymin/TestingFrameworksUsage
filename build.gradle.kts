@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     testImplementation(kotlin("test"))
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.1")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.2")
