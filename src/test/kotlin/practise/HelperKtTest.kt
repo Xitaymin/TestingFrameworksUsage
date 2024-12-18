@@ -3,6 +3,9 @@ package practise
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
+import org.junit.jupiter.params.provider.EmptySource
+import org.junit.jupiter.params.provider.NullAndEmptySource
+import org.junit.jupiter.params.provider.ValueSource
 
 class HelperKtTest {
 
@@ -17,28 +20,23 @@ class HelperKtTest {
     /*
      * todo написати параметризовані тести для функцій з класу Helper.kt, при реалізації використати наступні аннотації:
      * - @CsvSource
-     * - @CsvFileSource
      * - @MethodSource (для передачі параметра у функцію створіть і передавайте data class, замість стандартного класу Arguments)
      * - @ValueSource
-     * - NullAndEmptySource
+     * - @NullAndEmptySource
      */
 
+    @ValueSource(strings = ["passwrD0*", "PASSW0Rd%", "l234567&9O"])
     @ParameterizedTest
-    @CsvSource(
-        "P@ssw0rd,true",
-        "password,false",
-        "Passw0rd,false",
-        "P@ssword,false",
-        "Short1!,false",
-        "Valid123!,true"
-    )
-    fun `test isValidPassword with CsvSource`(password: String, expected: Boolean)
-    {
-        isValidPassword(password) shouldBe expected
+    fun `valid password accepted`(validPassword: String) {
+        isValidPassword(validPassword) shouldBe true
     }
 
-    //todo yb додати приклади з CSVFileSource, MethodSource, EnumSource
-
+    @NullAndEmptySource
+    @ValueSource(strings = ["password", "12345678","aD#", "iїпШщч0!" ])
+    @ParameterizedTest
+    fun `invalid password is rejected`(invalidPasswod: String?) {
+        isValidPassword(invalidPasswod) shouldBe false
+    }
 
 
     @ParameterizedTest
