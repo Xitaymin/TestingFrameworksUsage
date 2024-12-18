@@ -1,7 +1,6 @@
 /*
 * assertThrow
 * exception message
-* throw exception
 * окремий набір констант - Q
 * assertThrowsExactly
 * assertDoesn'tThrow
