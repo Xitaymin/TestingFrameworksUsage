@@ -2,7 +2,7 @@
 Перевірити що один рядок є циклічним зсувом іншого.
 Наприклад: "enhydrog" є циклічним зсувом "hydrogen".
 */
-//todo yb 1 - add tests
+
 class CyclicShiftChecker
 {
 	fun isCyclicShiftOf(candidate: String, initial: String): Boolean
