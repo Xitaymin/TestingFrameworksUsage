@@ -20,7 +20,7 @@ class HelperKtTest {
      * - @CsvFileSource
      * - @MethodSource (для передачі параметра у функцію створіть і передавайте data class, замість стандартного класу Arguments)
      * - @ValueSource
-     * - EmptyOrNullSource
+     * - NullAndEmptySource
      */
 
     @ParameterizedTest
