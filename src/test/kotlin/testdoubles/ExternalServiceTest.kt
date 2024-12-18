@@ -1,3 +1,4 @@
+import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.spyk
 import io.mockk.verify
@@ -7,20 +8,13 @@ import testdoubles.ExternalService
 class ExternalServiceTest {
 
 	@Test
-	fun testProcessDataWithMockedApiResponse() {
-		// Створюємо шпигуна для ExternalService
-		val serviceSpy = spyk(ExternalService())
-
-		// Перевизначаємо метод fetchDataFromApi
+	fun `service correctly process api call`() {
+		val serviceSpy = spyk<ExternalService>()
 		every { serviceSpy.fetchDataFromApi() } returns "Mocked API Response"
 
-		// Викликаємо метод, який використовує перевизначений fetchDataFromApi
 		val result = serviceSpy.processData()
 
-		// Перевіряємо, чи був викликаний fetchDataFromApi
 		verify { serviceSpy.fetchDataFromApi() }
-
-		// Друкуємо результат, щоб побачити змінену поведінку
-		println(result) // Виведе: Processed: Mocked API Response
+		result shouldBe "Processed: Mocked API Response"
 	}
 }
