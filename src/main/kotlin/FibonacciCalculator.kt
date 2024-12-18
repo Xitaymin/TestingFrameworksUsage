@@ -1,6 +1,6 @@
 import java.math.BigInteger
 
-class SimpleAlgorithmResolver {
+class FibonacciCalculator {
 
 	/*
 	* Послідовність Фібоначчі - це послідовність чисел, де кожне число є сумою двох попередніх чисел.
