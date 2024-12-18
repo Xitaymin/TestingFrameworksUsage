@@ -1,9 +1,8 @@
-import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
-class CyclicShiftCheckerTest {
-
+class CyclicShiftCheckerTest
+{
     /*
     * Не включайте ім'я методу, що тестується, у назву тесту.
     * Пам'ятайте, що ми тестуємо не код, а поведінку системи.
@@ -30,9 +29,17 @@ class CyclicShiftCheckerTest {
     */
 
     @Test
-    fun `string with cyclic shift accepted`() {
+    fun `Cyclically shifted string is accepted`() {
+//        Arrange
         val sut = CyclicShiftChecker()
-        val actual = sut.isCyclicShiftOf("erbottlewat", "waterbottle")
-        assertTrue(actual) { "Expected to accept string erbottlewat that is cyclic shift of waterbottle " }
+        val candidate = "enhydrog"
+        val initial = "hydrogen"
+//        Act
+        val result = sut.isCyclicShiftOf(candidate, initial)
+
+//        Assert
+        assertTrue(result){
+            "Expected string '$candidate' to be cyclic shift of '$initial'"
+        }
     }
 }

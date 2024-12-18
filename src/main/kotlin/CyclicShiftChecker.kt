@@ -1,10 +1,8 @@
 /*
-Припустимо, що існує метод isSubstring, який перевіряє, чи є
-одне слово підрядком іншого. Для двох рядків s1 і s2 напишіть код, який перевіряє
-рий перевіряє, чи отримано рядок s2 циклічним зсувом s1, використовуючи
-тільки один виклик методу isSubstring (приклад: слово waterbottle отримано
-циклічним зсувом erbottlewat).
+Перевірити що один рядок є циклічним зсувом іншого.
+Наприклад: "enhydrog" є циклічним зсувом "hydrogen".
 */
+//todo yb 1 - add tests
 class CyclicShiftChecker
 {
 	fun isCyclicShiftOf(candidate: String, initial: String): Boolean
