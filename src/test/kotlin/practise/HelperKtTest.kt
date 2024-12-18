@@ -13,10 +13,9 @@ class HelperKtTest {
     /*
      * todo написати параметризовані тести для функцій з класу Helper.kt, при реалізації використати наступні аннотації:
      * - @CsvSource
-     * - @CsvFileSource
      * - @MethodSource (для передачі параметра у функцію створіть і передавайте data class, замість стандартного класу Arguments)
      * - @ValueSource
-     * - EmptyOrNullSource
+     * - @EmptyOrNullSource
      */
 
 }
