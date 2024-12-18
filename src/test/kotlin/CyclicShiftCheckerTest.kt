@@ -26,7 +26,7 @@ class CyclicShiftCheckerTest
     * - можливості IDEA для прискорення написання тестів (створення, навігація, split screen)
     * - найменування ('' та Display Name)
     * - AAA
-    * - найпростіші ассерти з текстом
+    * - найпростіші ассерти з текстом та лінивими обчисленнями
     */
 
     @DisplayName("Cyclically shifted string is accepted \uD83D\uDCAA")
