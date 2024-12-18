@@ -7,6 +7,7 @@ class ExternalBotProviderTest
 {
 	private val botProvider = ExternalBotProvider()
 
+    //todo practise task 1
 	@Test
 	fun `bot properties should match soloviiov audience`() {
 		val user = botProvider.soloviiovHaterBot()
