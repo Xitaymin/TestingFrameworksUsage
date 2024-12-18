@@ -1,9 +1,5 @@
 package practise
 
-import io.kotest.matchers.shouldBe
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.*
-
 class HelperKtTest {
 
     /*
