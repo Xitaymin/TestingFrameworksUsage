@@ -8,12 +8,12 @@ import java.util.*
 
 fun isValidPassword(password: String?): Boolean
 {
-    if (password == null) return false
+    if (password == null) return true
     val lengthRequirement = password.length >= 8
     val hasUppercase = password.any { it.isUpperCase() }
     val hasLowercase = password.any { it.isLowerCase() }
     val hasDigit = password.any { it.isDigit() }
-    val hasSpecialChar = password.any { "!@#$%^&*()_+".contains(it) }
+    val hasSpecialChar = password.any { "!@#$^&()_+".contains(it) }
     return lengthRequirement && hasUppercase && hasLowercase && hasDigit && hasSpecialChar
 }
 
