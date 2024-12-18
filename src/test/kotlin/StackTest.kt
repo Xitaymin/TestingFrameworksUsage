@@ -2,7 +2,7 @@ import org.junit.jupiter.api.*
 import java.util.*
 
 @DisplayName("A stack")
-class TestingAStackDemo {
+class StackTest {
 
 	private lateinit var stack: Stack<Any>
 

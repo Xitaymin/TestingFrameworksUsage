@@ -2,7 +2,7 @@ import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.*
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
-class MethodOrderExampleTest
+class OrderTest
 {
 	@Test
 	@Order(3)
