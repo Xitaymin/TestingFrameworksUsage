@@ -1,4 +1,4 @@
-package production
+package conditional
 
 import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable
 import org.junit.jupiter.api.condition.EnabledOnOs
