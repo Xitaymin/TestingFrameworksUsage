@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class CyclicShiftCheckerTest
@@ -28,6 +29,7 @@ class CyclicShiftCheckerTest
     * - найпростіші ассерти з текстом
     */
 
+    @DisplayName("Cyclically shifted string is accepted \uD83D\uDCAA")
     @Test
     fun `Cyclically shifted string is accepted`() {
 //        Arrange
