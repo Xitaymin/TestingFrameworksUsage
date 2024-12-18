@@ -5,6 +5,7 @@
 * assertThrowsExactly
 * assertDoesn'tThrow
 * приклад з тестами з попередньої роботи
+* Disabled + message
 */
 
 
@@ -15,8 +16,6 @@ open class ValidationException(message: String) : RuntimeException(message)
 
 private const val AGE_CANNOT_BE_NEGATIVE = "Age cannot be negative"
 private const val AGE_TO_BIG = "People don't live that long"
-
-//todo yb 4 - test the function
 fun validateAge(age: Int) {
 
 		dangerousFunction()

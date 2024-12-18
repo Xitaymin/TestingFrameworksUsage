@@ -34,7 +34,6 @@ class FibonacciCalculatorTest
 
 	private val calculator = FibonacciCalculator()
 
-	//todo yb 3 - navigation only
 	@Test
 	@Timeout(5)
 	fun `fibonacci 100th number is correct`()

@@ -8,7 +8,6 @@ class FibonacciCalculator {
 	* Приклад: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 	* */
 
-	//todo yb 2 - test the function
 	fun fibonacciRecursive(n: Int): BigInteger {
 		if (n <= 1) return BigInteger(n.toString())
 		return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2)
