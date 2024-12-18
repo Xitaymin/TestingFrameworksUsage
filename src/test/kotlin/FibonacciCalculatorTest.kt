@@ -1,12 +1,9 @@
-import org.junit.jupiter.api.RepeatedTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Timeout
-import org.junit.jupiter.api.assertTimeoutPreemptively
 import java.math.BigInteger
-import java.time.Duration
 import kotlin.test.assertEquals
 
-class SimpleAlgorithmResolverTest
+class FibonacciCalculatorTest
 {
 	/*
 	* @Timeout or assertTimeout
@@ -35,7 +32,7 @@ class SimpleAlgorithmResolverTest
 
 
 
-	private val resolver = SimpleAlgorithmResolver()
+	private val calculator = FibonacciCalculator()
 
 	//todo yb 3 - navigation only
 	@Test
@@ -43,7 +40,7 @@ class SimpleAlgorithmResolverTest
 	fun `fibonacci 100th number is correct`()
 	{
 		val externallyCalculated100thFibonacciNumber = "354224848179261915075"
-		assertEquals(BigInteger(externallyCalculated100thFibonacciNumber), resolver.fibonacciRecursive(100))
+		assertEquals(BigInteger(externallyCalculated100thFibonacciNumber), calculator.fibonacciRecursive(100))
 	}
 
 
