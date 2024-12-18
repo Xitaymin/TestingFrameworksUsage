@@ -1,5 +1,9 @@
 package practise
 
+import io.kotest.matchers.shouldBe
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
+
 class HelperKtTest {
 
     /*
@@ -18,5 +22,47 @@ class HelperKtTest {
      * - @ValueSource
      * - EmptyOrNullSource
      */
+
+    @ParameterizedTest
+    @CsvSource(
+        "P@ssw0rd,true",
+        "password,false",
+        "Passw0rd,false",
+        "P@ssword,false",
+        "Short1!,false",
+        "Valid123!,true"
+    )
+    fun `test isValidPassword with CsvSource`(password: String, expected: Boolean)
+    {
+        isValidPassword(password) shouldBe expected
+    }
+
+    //todo yb додати приклади з CSVFileSource, MethodSource, EnumSource
+
+
+
+    @ParameterizedTest
+    @CsvSource(
+        // Позитивні випадки
+        "listen,silent,true",
+        "Triangle,Integral,true",
+        "aabb,bbaa,true",
+        "'','',true",
+        // Негативні випадки
+        "apple,app,false",
+        "hello,world,false",
+        "Test,Sett1,false",
+        // Граничні умови
+        "'',word,false",
+        "a b c,c b a,true",
+        "123!@#,321#@!,true",
+        "abcd,abdc,true",
+        // Проблеми із чутливістю до регістру
+        "UpperCase,uppercase,true"
+    )
+    fun `test areAnagrams`(initial: String, candidate: String, expected: Boolean)
+    {
+        assert(areAnagrams(initial, candidate) == expected)
+    }
 
 }
