@@ -1,34 +1,31 @@
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.*
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
-/*Показати інші способи задати порядок: реалізації MethodOrdered*/
 class MethodOrderExampleTest
 {
 	@Test
-	@Order(1)
-	fun testIncrementCounter()
+	@Order(3)
+	fun `counter decremented`()
 	{
-		counter++
-		Assertions.assertEquals(1, counter)
-		println("Test 1 executed, counter: " + counter)
+		counter--
+		counter shouldBe 1
 	}
 
 	@Test
-	@Order(3)
-	fun testDecrementCounter()
+	@Order(1)
+	fun `counter incremented`()
 	{
-		counter--
-		Assertions.assertEquals(1, counter)
-		println("Test 3 executed, counter: " + counter)
+		counter++
+		counter shouldBe 1
 	}
 
 	@Test
 	@Order(2)
-	fun testDoubleCounter()
+	fun `double counter`()
 	{
 		counter *= 2
-		Assertions.assertEquals(2, counter)
-		println("Test 2 executed, counter: " + counter)
+		counter shouldBe 2
 	}
 
 	companion object
