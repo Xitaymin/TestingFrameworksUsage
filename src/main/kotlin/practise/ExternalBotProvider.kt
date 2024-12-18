@@ -6,11 +6,11 @@ data class Bot(val name: String, val email: String, val age: Int, val aggression
 class ExternalBotProvider {
 
     fun soloviiovHaterBot() = Bot(
-        name = "Онуфрий",
-        email = "onufriy1966@yandex.ru",
-        age = 54,
-        aggressionPercentage = 95,
-        iq = 80
+        name = "Іван",
+        email = "onufriy1966@google.com",
+        age = 19,
+        aggressionPercentage = 40,
+        iq = 110
     )
 }
 
