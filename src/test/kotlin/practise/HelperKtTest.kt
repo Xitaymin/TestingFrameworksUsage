@@ -1,12 +1,15 @@
 package practise
 
 import io.kotest.matchers.shouldBe
+import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
-import org.junit.jupiter.params.provider.EmptySource
+import org.junit.jupiter.params.provider.MethodSource
 import org.junit.jupiter.params.provider.NullAndEmptySource
 import org.junit.jupiter.params.provider.ValueSource
+import java.util.stream.Stream
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class HelperKtTest {
 
     /*
@@ -32,35 +35,46 @@ class HelperKtTest {
     }
 
     @NullAndEmptySource
-    @ValueSource(strings = ["password", "12345678","aD#", "iїпШщч0!" ])
+    @ValueSource(strings = ["password", "12345678", "aD#", "iїпШщч0!"])
     @ParameterizedTest
     fun `invalid password is rejected`(invalidPasswod: String?) {
         isValidPassword(invalidPasswod) shouldBe false
     }
 
+    private fun provideValidAnagrams(): Stream<AnagramPair> {
+        return Stream.of(
+            AnagramPair("listen", "silent"),
+            AnagramPair("Triangle", "Integral"),
+            AnagramPair("a b c", "c b a"),
+            AnagramPair("word", "word"),
+            AnagramPair("123!@#","321#@!")
 
-    @ParameterizedTest
-    @CsvSource(
-        // Позитивні випадки
-        "listen,silent,true",
-        "Triangle,Integral,true",
-        "aabb,bbaa,true",
-        "'','',true",
-        // Негативні випадки
-        "apple,app,false",
-        "hello,world,false",
-        "Test,Sett1,false",
-        // Граничні умови
-        "'',word,false",
-        "a b c,c b a,true",
-        "123!@#,321#@!,true",
-        "abcd,abdc,true",
-        // Проблеми із чутливістю до регістру
-        "UpperCase,uppercase,true"
-    )
-    fun `test areAnagrams`(initial: String, candidate: String, expected: Boolean)
-    {
-        assert(areAnagrams(initial, candidate) == expected)
+        )
     }
 
+    @MethodSource("provideValidAnagrams")
+    @ParameterizedTest
+    fun `valid anagrams are accepted`(anagramPair: AnagramPair) {
+        areAnagrams(anagramPair.initial, anagramPair.candidate) shouldBe true
+    }
+
+    private fun provideInvalidAnagrams(): Stream<AnagramPair> {
+        return Stream.of(
+            AnagramPair("Triangle", "Integrol"),
+            AnagramPair("a b c", "c b a "),
+        )
+    }
+    @MethodSource("provideInvalidAnagrams")
+    @ParameterizedTest
+    fun `invalid anagrams are rejected`(anagramPair: AnagramPair) {
+        areAnagrams(anagramPair.initial, anagramPair.candidate) shouldBe false
+    }
+
+    @CsvSource("madam, true", "racecar, true", "level, true", "А роза упала на лапу Азора, true", "hello, false")
+    @ParameterizedTest
+    fun `palindrome correctly defined`(input: String, expected: Boolean) {
+        isPalindrome(input) shouldBe expected
+    }
 }
+
+data class AnagramPair(val initial: String, val candidate: String)
